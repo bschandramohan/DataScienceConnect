@@ -12,7 +12,7 @@ import operator
 # here's the list of possible columns to choose from.
 list_of_columns = ["type", "systeminfo_identifier", "accountid", "product", "assetalias", "feature", "featureversion", "appversion", "binaryrating", "realmid", "scalerating", "useragent", "updateddate", "deviceosversion", "tags", "scaleratingmax", "feedbacktext", "useridentifiers_country", "useridentifiers_language", "clienttype", "displayfeature", "displayfeedback"]
 
-github_link = 'https://github.intuit.com/cbs/FeedbackVisualization'
+github_link = 'https://github.com/bschandramohan/DataScienceConnect'
 
 # Set up the chart
 df = pd.read_csv('data/FeedbackData_upto_03152022.csv')
@@ -21,7 +21,7 @@ df = pd.read_csv('data/FeedbackData_upto_03152022.csv')
 external_stylesheets = ['https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title = 'Intuit Feedback Data Visualization'
+app.title = 'Product Feedback Data Visualization'
 
 product_list = np.append("ALL", df["product"].unique())
 app_list = np.append("ALL", df["assetalias"].unique())
@@ -83,7 +83,7 @@ app.layout = html.Div(children=[
     html.Br(),
     html.A('Code on Github', href=github_link),
     html.Br(),
-    html.A('Contact me on slack', href='https://intuit-teams.slack.com/team/W8GG6SJ4E'),
+    html.A('Contact me on medium', href='https://bschandramohan.medium.com/'),
     html.Br(),
     ],
     id="parent_container",
@@ -134,7 +134,7 @@ def update_figure_callback(product, app_type, feature):
 
 def update_heading(product, app_type, feature):
     if product == 'ALL' and app_type == 'ALL' and feature == 'ALL':
-        return "Intuit Feedback Data Visualization"
+        return "Product Feedback Data Visualization"
     else:
         return f"Feedback Data Visualization for product={product} app={app_type} feature={feature}"
 
